@@ -25,11 +25,6 @@ public class PaintView extends View {
         initialize();
     }
 
-    public PaintView(Context context, AttributeSet attrs, ArrayList<Point> points) {
-        super(context, attrs);
-        this.points = points;
-    }
-
     public PaintView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initialize();

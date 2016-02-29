@@ -54,7 +54,7 @@ public class Paint extends AppCompatActivity {
 
     private void checkErase() {
         int accel = Math.abs((int) mAccel);
-        if (accel > 1) {
+        if (accel > 3) {
             paintView.clearPoints();
         }
     }
