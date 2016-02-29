@@ -2,30 +2,41 @@ package com.marisayeung.homework4;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by marisayeung.
  */
 public class PaintView extends View {
 
-    private List<Point> points = new ArrayList<Point>();
+    private ArrayList<Point> points = new ArrayList<Point>();
     private Paint paint = new Paint();
 
-    public PaintView(Context context, AttributeSet attrs, List<Point> points) {
+    public PaintView(Context context) {
+        super(context);
+        initialize();
+    }
+
+    public PaintView(Context context, AttributeSet attrs, ArrayList<Point> points) {
         super(context, attrs);
         this.points = points;
     }
 
-    public PaintView(Context context) {
-        super(context);
+    public PaintView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initialize();
+    }
 
+    private void initialize() {
+        paint.setColor(Color.RED);
     }
 
     @Override
@@ -46,6 +57,33 @@ public class PaintView extends View {
         for (Point point : points) {
             canvas.drawCircle(point.x, point.y, 5, paint);
         }
-        //super.onDraw(canvas);
+        super.onDraw(canvas);
     }
+
+    public void clearPoints() {
+
+        //points.add(new Point((float) 25, (float) 25));
+        points.clear();
+        invalidate();
+    }
+
+
+
+//    @Override
+//    protected Parcelable onSaveInstanceState() {
+//        Bundle bundle = new Bundle();
+//        bundle.putParcelable("superState", super.onSaveInstanceState());
+//        bundle.putParcelableArrayList("points", points);
+//        return bundle;
+//    }
+//
+//    @Override
+//    protected void onRestoreInstanceState(Parcelable state) {
+//        if (state instanceof Bundle) {
+//            Bundle bundle = (Bundle) state;
+//            this.points = bundle.getParcelableArrayList("points");
+//            state = bundle.getParcelable("superState");
+//        }
+//        super.onRestoreInstanceState(state);
+//    }
 }
