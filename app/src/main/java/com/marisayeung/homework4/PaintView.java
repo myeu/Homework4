@@ -66,24 +66,4 @@ public class PaintView extends View {
         points.clear();
         invalidate();
     }
-
-
-
-//    @Override
-//    protected Parcelable onSaveInstanceState() {
-//        Bundle bundle = new Bundle();
-//        bundle.putParcelable("superState", super.onSaveInstanceState());
-//        bundle.putParcelableArrayList("points", points);
-//        return bundle;
-//    }
-//
-//    @Override
-//    protected void onRestoreInstanceState(Parcelable state) {
-//        if (state instanceof Bundle) {
-//            Bundle bundle = (Bundle) state;
-//            this.points = bundle.getParcelableArrayList("points");
-//            state = bundle.getParcelable("superState");
-//        }
-//        super.onRestoreInstanceState(state);
-//    }
 }

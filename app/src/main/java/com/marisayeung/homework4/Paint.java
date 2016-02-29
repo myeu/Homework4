@@ -25,7 +25,6 @@ public class Paint extends AppCompatActivity {
     private float mAccelCurrent; // current acceleration including gravity
     private float mAccelLast; // last acceleration including gravity
 
-    private TextView textViewX, textViewY, textViewZ, accelView;
     PaintView paintView;
 
     @Override
@@ -44,11 +43,6 @@ public class Paint extends AppCompatActivity {
             }
         });
 
-        textViewX = (TextView) findViewById(R.id.x);
-        textViewY = (TextView) findViewById(R.id.y);
-        textViewZ = (TextView) findViewById(R.id.z);
-        accelView = (TextView) findViewById(R.id.accel);
-
         paintView = (PaintView) findViewById(R.id.paint_view);
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -56,26 +50,13 @@ public class Paint extends AppCompatActivity {
         mAccel = 0.00f;
         mAccelCurrent = SensorManager.GRAVITY_EARTH;
         mAccelLast = SensorManager.GRAVITY_EARTH;
-
-        //displayAcceleration();
-
-        int accel = Math.abs((int) mAccel);
-
-        if (accel > 1) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Device has shaken.", Toast.LENGTH_LONG);
-            toast.show();
-        }
     }
 
     private void checkErase() {
         int accel = Math.abs((int) mAccel);
         if (accel > 1) {
-            accelView.setTextColor(Color.RED);
             paintView.clearPoints();
-        } else {
-            accelView.setTextColor(Color.BLACK);
         }
-        accelView.setText(String.format("%d", accel));
     }
 
     @Override
@@ -106,10 +87,6 @@ public class Paint extends AppCompatActivity {
             float x = se.values[0];
             float y = se.values[1];
             float z = se.values[2];
-
-            textViewX.setText(String.format("%.2f", x));
-            textViewY.setText(String.format("%.2f", y));
-            textViewZ.setText(String.format("%.2f", z));
 
             mAccelLast = mAccelCurrent;
             mAccelCurrent = (float) Math.sqrt((double) (x*x + y*y + z*z));

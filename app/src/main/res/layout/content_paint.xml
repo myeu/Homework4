@@ -12,41 +12,9 @@
     tools:context="com.marisayeung.homework4.Paint"
     tools:showIn="@layout/activity_paint">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/x"
-        android:text="@string/x"
-        android:paddingLeft="10dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/y"
-        android:text="@string/y"
-        android:layout_toEndOf="@id/x"
-        android:paddingLeft="10dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/z"
-        android:text="@string/z"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentStart="false"
-        android:layout_toEndOf="@id/y"
-        android:paddingLeft="10dp" />
-
     <com.marisayeung.homework4.PaintView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/paint_view" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="accell"
-        android:id="@+id/accel"
-        android:layout_below="@+id/x"
-        android:layout_alignParentStart="true"
-        android:textSize="80sp" />
 </RelativeLayout>
