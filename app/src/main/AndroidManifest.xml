@@ -19,11 +19,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".UnlockBroadcastReceiver" >
+
+        <receiver android:name=".UnlockBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
+
+        <service
+            android:name=".EraserIntentService"
+            android:exported="false"></service>
     </application>
 
 </manifest>
